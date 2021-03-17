@@ -17,9 +17,13 @@ def add_command():
     list1.insert(END, (title_text.get(), author_text.get(), year_input.get(), isbn_input.get()))
 
 def get_selected_row(event):
+    # this has to be global to allow delete command access to it
+    global selected_tuple
     index = list1.curselection()[0]
     selected_tuple = list1.get(index)
-    print(selected_tuple)
+
+def delete_command():
+    backend.delete(selected_tuple[0])
 
 window = Tk()
 
@@ -74,7 +78,7 @@ b3.grid(row=4, column=3)
 b4 = Button(window, text="Update entry", width=12)
 b4.grid(row=5, column=3)
 
-b5 = Button(window, text="Delete entry", width=12)
+b5 = Button(window, text="Delete entry", width=12, command=delete_command)
 b5.grid(row=6, column=3)
 
 b6 = Button(window, text="Exit", width=12)
