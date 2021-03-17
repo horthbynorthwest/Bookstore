@@ -13,6 +13,8 @@ def search_command():
 
 def add_command():
     backend.add(title_text.get(), author_text.get(), year_input.get(), isbn_input.get())
+    list1.delete(0,END)
+    list1.insert(END, (title_text.get(), author_text.get(), year_input.get(), isbn_input.get()))
 
 window = Tk()
 
