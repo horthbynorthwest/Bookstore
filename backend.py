@@ -30,7 +30,16 @@ def search(title="", author="", year="", isbn=""):
     conn.close()
     return search_books
 
+def delete(id):
+    conn = sqlite3.connect("books.db")
+    cursor = conn.cursor()   
+    cursor.execute("DELETE FROM book WHERE id=?", (id,))
+    conn.commit()
+    conn.close()
+
+
 connect()
-add("The Earth","John Smith", 1918, 180982)
+add("The Sun","John Smith", 1918, 180982)
 print(view())
-print(search(author="John Smith"))
+delete(2)
+print(view())
