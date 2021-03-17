@@ -11,6 +11,9 @@ def search_command():
     for row in backend.search(title_text.get(), author_text.get(), year_input.get(), isbn_input.get()):
         list1.insert(END, row)
 
+def add_command():
+    backend.add(title_text.get(), author_text.get(), year_input.get(), isbn_input.get())
+
 window = Tk()
 
 l1 = Label(window, text="Title")
@@ -56,7 +59,7 @@ b1.grid(row=2, column=3)
 b2 = Button(window, text="Search entry", width=12, command=search_command)
 b2.grid(row=3, column=3)
 
-b3 = Button(window, text="Add entry", width=12)
+b3 = Button(window, text="Add entry", width=12, command=add_command)
 b3.grid(row=4, column=3)
 
 b4 = Button(window, text="Update entry", width=12)
