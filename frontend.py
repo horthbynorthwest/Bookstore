@@ -2,6 +2,7 @@ from tkinter import *
 import backend
 
 def view_command():
+    list1.delete(0,END)
     for row in backend.view():
         list1.insert(END, row)
 
