@@ -17,20 +17,22 @@ def add_command():
     list1.insert(END, (title_text.get(), author_text.get(), year_input.get(), isbn_input.get()))
 
 def get_selected_row(event):
-    # this has to be global to allow delete command access to it
-    global selected_tuple
-    index = list1.curselection()[0]
-    selected_tuple = list1.get(index)
+    try:
+        # this has to be global to allow delete command access to it
+        global selected_tuple
+        index = list1.curselection()[0]
+        selected_tuple = list1.get(index)
 
-    e1.delete(0, END)
-    e1.insert(END, selected_tuple[1])
-    e2.delete(0, END)
-    e2.insert(END, selected_tuple[2])
-    e3.delete(0, END)
-    e3.insert(END, selected_tuple[3])
-    e4.delete(0, END)
-    e4.insert(END, selected_tuple[4])
-    
+        e1.delete(0, END)
+        e1.insert(END, selected_tuple[1])
+        e2.delete(0, END)
+        e2.insert(END, selected_tuple[2])
+        e3.delete(0, END)
+        e3.insert(END, selected_tuple[3])
+        e4.delete(0, END)
+        e4.insert(END, selected_tuple[4])
+    except IndexError:
+        pass
 
 def delete_command():
     backend.delete(selected_tuple[0])
