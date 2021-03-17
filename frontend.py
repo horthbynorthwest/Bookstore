@@ -34,6 +34,7 @@ def get_selected_row(event):
 
 def delete_command():
     backend.delete(selected_tuple[0])
+    view_command()
 
 window = Tk()
 
