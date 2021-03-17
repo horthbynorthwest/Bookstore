@@ -22,6 +22,15 @@ def view():
     conn.close()
     return all_books
 
+def search(title="", author="", year="", isbn=""):
+    conn = sqlite3.connect("books.db")
+    cursor = conn.cursor()   
+    cursor.execute("SELECT * FROM book WHERE title=? OR author=? OR year=? OR isbn=?", (title, author, year, isbn))
+    search_books = cursor.fetchall()
+    conn.close()
+    return search_books
+
 connect()
-add("The Sea","John Tablet", 1918, 180982)
+add("The Earth","John Smith", 1918, 180982)
 print(view())
+print(search(author="John Smith"))
