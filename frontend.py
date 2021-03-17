@@ -18,7 +18,8 @@ def add_command():
 
 def get_selected_row(event):
     index = list1.curselection()[0]
-    print(index)
+    selected_tuple = list1.get(index)
+    print(selected_tuple)
 
 window = Tk()
 
