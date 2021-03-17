@@ -30,4 +30,7 @@ isbn_input = StringVar()
 e4 = Entry(window, textvariable=isbn_input)
 e4.grid(row=1, column=3)
 
+list1 = Listbox(window, height=8, width=35)
+list1.grid(row=2, column=0, rowspan=8, columnspan=2)
+
 window.mainloop()
