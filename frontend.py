@@ -16,6 +16,10 @@ def add_command():
     list1.delete(0,END)
     list1.insert(END, (title_text.get(), author_text.get(), year_input.get(), isbn_input.get()))
 
+def get_selected_row(event):
+    index = list1.curselection()[0]
+    print(index)
+
 window = Tk()
 
 l1 = Label(window, text="Title")
@@ -54,6 +58,8 @@ sb1.grid(row=2, column=2, rowspan=8)
 
 list1.configure(yscrollcommand=sb1.set)
 sb1.configure(command=list1.yview)
+
+list1.bind('<<ListboxSelect>>', get_selected_row)
 
 b1 = Button(window, text="View all", width=12, command=view_command)
 b1.grid(row=2, column=3)
