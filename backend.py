@@ -18,17 +18,17 @@ def view():
     conn = sqlite3.connect("books.db")
     cursor = conn.cursor()   
     cursor.execute("SELECT * FROM book")
-    all_books = cursor.fetchall()
+    rows = cursor.fetchall()
     conn.close()
-    return all_books
+    return rows
 
 def search(title="", author="", year="", isbn=""):
     conn = sqlite3.connect("books.db")
     cursor = conn.cursor()   
     cursor.execute("SELECT * FROM book WHERE title=? OR author=? OR year=? OR isbn=?", (title, author, year, isbn))
-    search_books = cursor.fetchall()
+    rows = cursor.fetchall()
     conn.close()
-    return search_books
+    return rows
 
 def delete(id):
     conn = sqlite3.connect("books.db")
@@ -48,7 +48,7 @@ def update(id, title, author, year, isbn):
 
 connect()
 # add("The Sun","John Smith", 1918, 180982)
-print(view())
-# delete(2)
-update(4, "The Moon", "John Smooth", 1965,17892)
-print(view())
+# print(view())
+# # delete(2)
+# update(4, "The Moon", "John Smooth", 1965,17892)
+# print(view())
