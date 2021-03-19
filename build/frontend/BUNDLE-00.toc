@@ -1,4 +1,0 @@
-([('frontend',
-   '/Users/georgiehorth/Desktop/Post Makers/Python - 10 '
-   'Applications/Bookstore/App/dist/frontend',
-   'EXECUTABLE')],)
